@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calculadora
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment (ionChange)="segmentChanged($event)"> 
+    <ion-segment-button value="add">
+      <ion-label>Somar</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="subtract">
+      <ion-label>Subtrair</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="multiply">
+      <ion-label>Multiplicar</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="divide">
+      <ion-label>Dividir</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-item>
+    <ion-label position="stacked">Número 1</ion-label>
+    <ion-input [(ngModel)]="num1" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Número 2</ion-label>
+    <ion-input [(ngModel)]="num2" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="calculateResult()">Calcular</ion-button>
+
+  <ion-row *ngIf="result !== null">
+    <ion-col size="12">
+      <ion-label>Resultado: {{ result }}</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-content>
